@@ -1,0 +1,95 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 222 47% 4%;
+    --foreground: 0 0% 100%;
+    --primary: 239 84% 67%;
+    --accent: 187 94% 43%;
+    --secondary: 258 90% 66%;
+    --muted: 220 14% 20%;
+    --muted-foreground: 220 9% 65%;
+    --border: 0 0% 100% / 0.08;
+    --ring: 239 84% 67%;
+    --radius: 0.75rem;
+  }
+
+  .light {
+    --background: 0 0% 98%;
+    --foreground: 222 47% 11%;
+    --muted: 220 14% 96%;
+    --muted-foreground: 220 9% 46%;
+    --border: 222 47% 11% / 0.08;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+
+  ::selection {
+    @apply bg-primary/30 text-foreground;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply border border-white/10 bg-white/[0.03] backdrop-blur-xl;
+  }
+
+  .light .glass {
+    @apply border-black/10 bg-black/[0.03];
+  }
+
+  .gradient-text {
+    background: linear-gradient(135deg, #8B5CF6 0%, #6366F1 50%, #06B6D4 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .section-padding {
+    @apply py-24 md:py-32;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+.light body {
+  background-color: #f8fafc;
+  color: #0f172a;
+}
+
+.light .bg-background {
+  background-color: #f8fafc;
+}
+
+.light .text-muted-foreground {
+  color: #64748b;
+}
+
+.light [class*="border-white"] {
+  border-color: rgba(0, 0, 0, 0.08);
+}
+
+.light [class*="bg-white"] {
+  background-color: rgba(0, 0, 0, 0.03);
+}
+
+.light .bg-card {
+  background-color: rgba(255, 255, 255, 0.8);
+}
